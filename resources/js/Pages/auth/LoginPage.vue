@@ -1,5 +1,5 @@
 <template>
-    <div class="card w-96 shadow-xl bg-base-100">
+    <div class="card w-96 shadow-xl bg-base-100 max-w-xs">
         <div class="card-body">
             <h2 class="card-title justify-center text-2xl">
                 LOGIN
