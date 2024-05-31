@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="bg-base-200">
 
 <head>
     <meta charset="utf-8" />
@@ -7,9 +7,10 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @inertiaHead
+    @routes
 </head>
 
-<body class="bg-base-300">
+<body>
     @inertia
 </body>
 

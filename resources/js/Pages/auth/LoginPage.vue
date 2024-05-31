@@ -24,14 +24,19 @@
                 </div> -->
             </label>
 
-            <button class="btn btn-primary my-8">LOGIN</button>
+            <button class="btn btn-primary my-8" @click="isLogin">LOGIN</button>
         </div>
     </div>
 </template>
 <script setup>
+import { router } from "@inertiajs/vue3";
 import layout from "../../Layout/AuthLayout.vue";
 
 defineOptions({
     layout
 })
+
+const isLogin = () => {
+    router.get(route("postingan.semua"))
+}
 </script>

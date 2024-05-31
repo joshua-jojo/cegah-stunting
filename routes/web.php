@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PostinganController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return inertia()->render("auth/LoginPage");
+Route::get('/', [ClientController::class, 'index'])->name("client");
+
+Route::get("/login", [AuthController::class, 'login_index'])->name("login");
+
+Route::group(['prefix' => "postingan", "as" => "postingan."], function () {
+    Route::get("/semua", [PostinganController::class, 'semua'])->name("semua");
+    Route::get("/buat-postingan-baru", [PostinganController::class, 'buat_postingan_baru'])->name("buat_postingan_baru");
+    Route::get("/edit-postingan", [PostinganController::class, 'edit_postingan'])->name("edit_postingan");
+});
+
+Route::group(['prefix' => "kategori", "as" => "kategori."], function () {
+    Route::get("/", [KategoriController::class, 'index'])->name("index");
 });

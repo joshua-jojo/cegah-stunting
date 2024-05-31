@@ -6,6 +6,7 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@originjs/vite-plugin-commonjs": "^1.0.3",
         "autoprefixer": "^10.4.19",
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0.0",
@@ -15,8 +16,18 @@
     },
     "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610",
     "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^41.4.2",
+        "@ckeditor/ckeditor5-upload": "^41.4.2",
+        "@ckeditor/ckeditor5-vue": "^5.1.0",
         "@inertiajs/vue3": "^1.1.0",
+        "@rollup/plugin-commonjs": "^25.0.8",
         "@vitejs/plugin-vue": "^5.0.5",
-        "daisyui": "^4.11.1"
+        "ckeditor5-custom-build": "file:ckeditor5",
+        "daisyui": "^4.11.1",
+        "qs": "^6.12.1",
+        "quill": "^2.0.2",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "vite-plugin-commonjs": "^0.10.1",
+        "ziggy-js": "^2.2.1"
     }
 }
