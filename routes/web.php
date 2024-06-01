@@ -24,6 +24,7 @@ Route::get("/login", [AuthController::class, 'login_index'])->name("login");
 Route::group(['prefix' => "postingan", "as" => "postingan."], function () {
     Route::get("/semua", [PostinganController::class, 'semua'])->name("semua");
     Route::get("/buat-postingan-baru", [PostinganController::class, 'buat_postingan_baru'])->name("buat_postingan_baru");
+    Route::post("/simpan-postingan-baru", [PostinganController::class, 'simpan_postingan_baru'])->name("simpan_postingan_baru");
     Route::get("/edit-postingan", [PostinganController::class, 'edit_postingan'])->name("edit_postingan");
 });
 
