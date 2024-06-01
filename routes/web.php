@@ -29,4 +29,7 @@ Route::group(['prefix' => "postingan", "as" => "postingan."], function () {
 
 Route::group(['prefix' => "kategori", "as" => "kategori."], function () {
     Route::get("/", [KategoriController::class, 'index'])->name("index");
+    Route::post("/", [KategoriController::class, 'tambah'])->name("tambah");
+    Route::post("/edit", [KategoriController::class, 'edit'])->name("edit");
+    Route::post("/hapus", [KategoriController::class, 'hapus'])->name("hapus");
 });
