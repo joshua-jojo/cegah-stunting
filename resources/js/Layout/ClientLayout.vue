@@ -1,36 +1,75 @@
 <template>
-    <div class="navbar bg-base-100">
+    <div class="navbar bg-base-100 ">
         <div class="flex-1">
             <a class="btn btn-ghost text-xl" @click="go_client">Cegah Stunting</a>
         </div>
-        <div class="flex-none">
+        <div class="flex-none z-10">
+            <ul class="menu menu-horizontal px-8">
+                <li class="mr-4" @click="go_client"><a>Dashboard</a></li>
+                <li class="mr-4" v-if="props.dashboard.berita">
+                    <details>
+                        <summary>
+                            Berita
+                        </summary>
+                        <ul class="p-2 bg-base-100 rounded-t-none w-max">
+                            <li v-for="(item, index) in props.dashboard.berita" :key="index" @click="go_kategori(item.id)">
+                                <a>{{ item.nama }}</a>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+                <li class="mr-4" v-if="props.dashboard.peran">
+                    <details>
+                        <summary>
+                            Peran Anda
+                        </summary>
+                        <ul class="p-2 bg-base-100 rounded-t-none w-max">
+                            <li v-for="(item, index) in props.dashboard.peran" :key="index" @click="go_kategori(item.id)">
+                                <a>{{ item.nama }}</a>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+                <li class="mr-4" v-if="props.dashboard.kegiatan">
+                    <details>
+                        <summary>
+                            Kegiatan
+                        </summary>
+                        <ul class="p-2 bg-base-100 rounded-t-none w-max">
+                            <li v-for="(item, index) in props.dashboard.kegiatan" :key="index" @click="go_kategori(item.id)">
+                                <a>{{ item.nama }}</a>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
             <button class="btn btn-sm btn-primary" @click="login">Login</button>
         </div>
     </div>
     <div class="carousel w-full">
-        <div id="slide1" class="carousel-item relative w-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" class="w-full" />
-            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide4" class="btn btn-circle">❮</a>
-                <a href="#slide2" class="btn btn-circle">❯</a>
-            </div>
-        </div>
         <div id="slide2" class="carousel-item relative w-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg" class="w-full" />
+            <img src="https://cegahstunting.id/wp-content/uploads/2022/05/Metaslider-Website-RO-22-scaled-1980x894.jpg" class="w-full" />
             <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                 <a href="#slide1" class="btn btn-circle">❮</a>
                 <a href="#slide3" class="btn btn-circle">❯</a>
             </div>
         </div>
+        <div id="slide1" class="carousel-item relative w-full">
+            <img src="https://cegahstunting.id/wp-content/uploads/2021/03/1602-Website-Siklus-Daur-Kehidupan-New_Monev_Monev_Monev-scaled-1980x894.jpg" class="w-full" />
+            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide4" class="btn btn-circle">❮</a>
+                <a href="#slide2" class="btn btn-circle">❯</a>
+            </div>
+        </div>
         <div id="slide3" class="carousel-item relative w-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" class="w-full" />
+            <img src="https://cegahstunting.id/wp-content/uploads/2020/06/slider-home.jpg" class="w-full" />
             <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                 <a href="#slide2" class="btn btn-circle">❮</a>
                 <a href="#slide4" class="btn btn-circle">❯</a>
             </div>
         </div>
         <div id="slide4" class="carousel-item relative w-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" class="w-full" />
+            <img src="https://cegahstunting.id/wp-content/uploads/2021/05/METASLIDER-WEB_7_7-scaled-1980x894.jpg" class="w-full" />
             <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                 <a href="#slide3" class="btn btn-circle">❮</a>
                 <a href="#slide1" class="btn btn-circle">❯</a>
@@ -75,6 +114,9 @@
 <script setup>
 import { router } from '@inertiajs/vue3';
 
+const props = defineProps({
+    dashboard: Array
+})
 
 const login = () => {
     router.get(route("login"))
@@ -82,5 +124,9 @@ const login = () => {
 
 const go_client = () => {
     router.get(route('client'))
+}
+
+const go_kategori = (kategori) => {
+    router.get(route("client.kategori", { kategori }))
 }
 </script>

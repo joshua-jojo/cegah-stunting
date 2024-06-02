@@ -9,7 +9,7 @@ class KategoriController extends Controller
 {
     public function index()
     {
-        $kategori = Kategori::get();
+        $kategori = Kategori::withCount("postingan")->get();
         $props = [
             "kategori" => $kategori
         ];

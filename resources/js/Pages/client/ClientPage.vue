@@ -1,4 +1,10 @@
 <template>
+    <div class="flex justify-center items-center w-full flex-col" v-if="props.pengenalan?.postingan">
+        <div class="text-center font-bold text-3xl mb-8">
+            {{props.pengenalan.judul}}
+        </div>
+        <div class="w-[800px] mb-16" v-html="props.pengenalan.postingan"></div>
+    </div>
     <div class="text-center font-bold text-3xl mb-8">
         Berita Terkait
     </div>
@@ -12,19 +18,6 @@
             </div>
         </div>
     </div>
-
-    <div class="text-center font-bold text-3xl my-8">
-        Kategori
-    </div>
-    <div class="grid grid-cols-3 gap-8">
-        <div class="card w-full bg-base-100 shadow-xl hover:scale-110 duration-300"
-            v-for="(item, index) in props.kategori" :key="index" @click="show_kategori(item)">
-            <div class="card-body">
-                <h2 class="card-title truncate-multiline-2 text-center"> {{ item.nama }}
-                </h2>
-            </div>
-        </div>
-    </div>
 </template>
 <script setup>
 import { router } from "@inertiajs/vue3";
@@ -35,8 +28,8 @@ defineOptions({
 })
 
 const props = defineProps({
-    kategori: Array,
     postingan: Array,
+    pengenalan: Object,
 })
 
 const show_postingan = (id) => {

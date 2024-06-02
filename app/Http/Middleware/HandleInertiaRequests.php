@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -36,7 +37,26 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            //
+            "dashboard" => [
+                "berita" => Kategori::query()
+                    ->select(["id", 'nama'])
+                    ->where("nama", 'like', 'berita%')
+                    ->get()
+                    ->map(function ($q) {
+                        $nama = str_replace("BERITA :", "", $q->nama);
+                        $q->nama = trim($nama);
+                        return $q;
+                    }),
+                "peran" => Kategori::query()
+                    ->select(["id", 'nama'])
+                    ->where("nama", 'like', 'peran anda%')
+                    ->get()
+                    ->map(function ($q) {
+                        $nama = str_replace("PERAN ANDA :", "", $q->nama);
+                        $q->nama = trim($nama);
+                        return $q;
+                    }),
+            ]
         ]);
     }
 }

@@ -74,6 +74,6 @@ const menu = ref([
 ])
 
 const logout = () => {
-    router.get(route("client"))
+    router.post(route("logout"))
 }
 </script>

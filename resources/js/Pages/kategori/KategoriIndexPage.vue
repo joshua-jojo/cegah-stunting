@@ -32,7 +32,7 @@
                                 {{ item.nama }}
                             </template>
                         </td>
-                        <td>2 Posting</td>
+                        <td>{{ item.postingan_count }} Posting</td>
                         <td>
                             <div class="flex gap-4" v-if="form_edit.id != item.id">
                                 <button class="btn btn-sm w-max btn-primary" @click="get_edit(item)">Edit</button>
