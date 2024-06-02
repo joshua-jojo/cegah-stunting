@@ -24,9 +24,13 @@ class PostinganController extends Controller
         return inertia()->render("postingan/BuatPostinganBaruPage", $props);
     }
 
-    public function edit_postingan()
+    public function edit_postingan(Postingan $postingan)
     {
-        return inertia()->render("postingan/EditPostinganPage");
+        $props = [
+            "postingan" => $postingan,
+            "kategori" => Kategori::select(['id', 'nama'])->get()
+        ];
+        return inertia()->render("postingan/EditPostinganPage", $props);
     }
 
     public function simpan_postingan_baru(Request $request)
@@ -42,5 +46,39 @@ class PostinganController extends Controller
         $postingan->kategori_id = $request->kategori_id;
         $postingan->postingan = $request->posting;
         $postingan->save();
+
+        return redirect()->route("postingan.semua");
+    }
+
+    public function show_postingan(Postingan $id)
+    {
+        $props = [
+            "postingan" => $id->load("kategori"),
+        ];
+
+        return inertia()->render("client/ClientPostingPage", $props);
+    }
+
+    public function simpan_postingan_edit(Request $request)
+    {
+        $request->validate([
+            "id" => "required|exists:postingans,id",
+            "kategori_id" => "required|exists:kategoris,id",
+            "judul" => "required",
+            "postingan" => "required"
+        ]);
+
+        $postingan = Postingan::find($request->id);
+        $postingan->judul = $request->judul;
+        $postingan->kategori_id = $request->kategori_id;
+        $postingan->postingan = $request->postingan;
+        $postingan->save();
+
+        return redirect()->route("postingan.semua");
+    }
+
+    public function hapus(Postingan $postingan)
+    {
+        $postingan->delete();
     }
 }

@@ -59,18 +59,6 @@ const menu = ref([
         }
     },
     {
-        title: "Edit Postingan",
-        active: "postingan.edit_postingan",
-        click: () => {
-            router.get(route("postingan.edit_postingan"), {}, {
-                preserveState: true,
-                onSuccess: () => {
-                    page.value = route().current()
-                }
-            })
-        }
-    },
-    {
         title: "Kategori",
         active: "kategori.index",
         click: () => {

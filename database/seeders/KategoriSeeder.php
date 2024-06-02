@@ -13,7 +13,7 @@ class KategoriSeeder extends Seeder
      */
     public function run(): void
     {
-        $nama_kategori = ["IBU", "AYAH", "KELUARGA"];
+        $nama_kategori = ["KELUARGA", "PEMERINTAH", "PUBLIK","BERITA PUSAT","BERITA DAERAH","BERITA PERS"];
 
         foreach ($nama_kategori as $key => $value) {
             $kategori = new Kategori();

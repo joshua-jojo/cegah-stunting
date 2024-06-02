@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="bg-base-200">
+<html class="bg-base-200 scroll-smooth">
 
 <head>
     <meta charset="utf-8" />

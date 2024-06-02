@@ -1,7 +1,7 @@
 <template>
     <div class="navbar bg-base-100">
         <div class="flex-1">
-            <a class="btn btn-ghost text-xl">Cegah Stunting</a>
+            <a class="btn btn-ghost text-xl" @click="go_client">Cegah Stunting</a>
         </div>
         <div class="flex-none">
             <button class="btn btn-sm btn-primary" @click="login">Login</button>
@@ -78,5 +78,9 @@ import { router } from '@inertiajs/vue3';
 
 const login = () => {
     router.get(route("login"))
+}
+
+const go_client = () => {
+    router.get(route('client'))
 }
 </script>

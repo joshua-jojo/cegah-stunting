@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ClientController::class, 'index'])->name("client");
+Route::get('/kategori/{kategori}', [ClientController::class, 'kategori_berita'])->name("client.kategori");
 
 Route::get("/login", [AuthController::class, 'login_index'])->name("login");
 
@@ -25,7 +26,10 @@ Route::group(['prefix' => "postingan", "as" => "postingan."], function () {
     Route::get("/semua", [PostinganController::class, 'semua'])->name("semua");
     Route::get("/buat-postingan-baru", [PostinganController::class, 'buat_postingan_baru'])->name("buat_postingan_baru");
     Route::post("/simpan-postingan-baru", [PostinganController::class, 'simpan_postingan_baru'])->name("simpan_postingan_baru");
-    Route::get("/edit-postingan", [PostinganController::class, 'edit_postingan'])->name("edit_postingan");
+    Route::get("/show-postingan/{id}", [PostinganController::class, 'show_postingan'])->name("show_postingan");
+    Route::get("/edit-postingan/{postingan}", [PostinganController::class, 'edit_postingan'])->name("edit_postingan");
+    Route::post("/simpan-postingan", [PostinganController::class, 'simpan_postingan_edit'])->name("simpan_postingan_edit");
+    Route::get("/hapus-postingan/{postingan}", [PostinganController::class, 'hapus'])->name("hapus");
 });
 
 Route::group(['prefix' => "kategori", "as" => "kategori."], function () {
