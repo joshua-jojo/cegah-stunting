@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-full bg-base-100 rounded-xl px-6 py-4">
+    <div class="w-full h-full bg-base-100 rounded-xl px-6 py-4 mb-16 overflow-auto">
         <div class="flex justify-between mb-4">
             <div class="font-bold text-2xl">Kategori</div>
             <button class="btn btn-success btn-sm" @click="tambah_show">Tambah Kategori</button>

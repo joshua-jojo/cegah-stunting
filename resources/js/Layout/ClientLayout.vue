@@ -42,6 +42,7 @@
                         </ul>
                     </details>
                 </li>
+                <li class="mr-4" v-if="props.dashboard.edukasi" @click="show_postingan(props.dashboard.edukasi[0].id)"><a>Edukasi</a></li>
             </ul>
             <button class="btn btn-sm btn-primary" @click="login">Login</button>
         </div>
@@ -115,7 +116,7 @@
 import { router } from '@inertiajs/vue3';
 
 const props = defineProps({
-    dashboard: Array
+    dashboard: Object
 })
 
 const login = () => {
@@ -128,5 +129,9 @@ const go_client = () => {
 
 const go_kategori = (kategori) => {
     router.get(route("client.kategori", { kategori }))
+}
+
+const show_postingan = (id) => {
+    router.get(route("postingan.show_postingan", { id }))
 }
 </script>
