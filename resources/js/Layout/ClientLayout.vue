@@ -30,18 +30,7 @@
                         </ul>
                     </details>
                 </li>
-                <li class="mr-4" v-if="props.dashboard.kegiatan">
-                    <details>
-                        <summary>
-                            Kegiatan
-                        </summary>
-                        <ul class="p-2 bg-base-100 rounded-t-none w-max">
-                            <li v-for="(item, index) in props.dashboard.kegiatan" :key="index" @click="go_kategori(item.id)">
-                                <a>{{ item.nama }}</a>
-                            </li>
-                        </ul>
-                    </details>
-                </li>
+                <li class="mr-4" v-if="props.dashboard.kegiatan" @click="show_postingan(props.dashboard.kegiatan[0].id)"><a>Kegiatan</a></li>
                 <li class="mr-4" v-if="props.dashboard.edukasi" @click="show_postingan(props.dashboard.edukasi[0].id)"><a>Edukasi</a></li>
             </ul>
             <button class="btn btn-sm btn-primary" @click="login">Login</button>

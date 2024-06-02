@@ -56,6 +56,7 @@ class HandleInertiaRequests extends Middleware
                         $q->nama = trim($nama);
                         return $q;
                     }),
+                "kegiatan" => Kategori::where("nama",'kegiatan')->first()?->postingan,
                 "edukasi" => Kategori::where("nama",'edukasi')->first()?->postingan
             ]
         ]);
