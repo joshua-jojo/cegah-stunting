@@ -22,7 +22,7 @@ class KategoriSeeder extends Seeder
             "BERITA : DAERAH",
             "BERITA : PERS",
             "EDUKASI",
-            "KEGIATAN",
+            "PROGRAM",
         ];
 
         foreach ($nama_kategori as $key => $value) {

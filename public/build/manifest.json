@@ -1,16 +1,38 @@
 {
+  "resources/assets/img1.jpg": {
+    "file": "assets/img1-CAHaFEpS.jpg",
+    "src": "resources/assets/img1.jpg"
+  },
+  "resources/assets/img2.jpg": {
+    "file": "assets/img2-B45XrFHM.jpg",
+    "src": "resources/assets/img2.jpg"
+  },
+  "resources/assets/img3.jpg": {
+    "file": "assets/img3-BvzAl-Yv.jpg",
+    "src": "resources/assets/img3.jpg"
+  },
+  "resources/assets/logo.jpg": {
+    "file": "assets/logo-9ygq0gHu.jpg",
+    "src": "resources/assets/logo.jpg"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-BVjWf3Go.css",
+    "file": "assets/app-DqzmrKLX.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-BF106UY9.js",
+    "file": "assets/app-DswOo0nL.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
       "assets/app-B3Hh9LE3.css"
+    ],
+    "assets": [
+      "assets/logo-9ygq0gHu.jpg",
+      "assets/img1-CAHaFEpS.jpg",
+      "assets/img2-B45XrFHM.jpg",
+      "assets/img3-BvzAl-Yv.jpg"
     ]
   }
 }
